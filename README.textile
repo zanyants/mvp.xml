@@ -1,0 +1,7 @@
+This is, roughly, a git-svn clone of the "mvp.xml":http://mvpxml.codeplex.com project. Due to issues likely related to the codeplex svn bridge, some revisions could not be cloned, and are absent from this repository. Several ranges of revisions had to be hand-grafted to get what we've got here.
+
+The master branch tracks the codeplex repo (via the svn bridge).
+
+The contrib branch contains contributions from ZanyAnts which have not been accepted upstream.
+
+opensource@zanyants.com
