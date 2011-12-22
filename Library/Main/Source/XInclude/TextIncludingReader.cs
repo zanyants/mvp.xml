@@ -339,7 +339,7 @@ namespace Mvp.Xml.XInclude
 		private Encoding GetEncodingFromXMLDecl(string href)
 		{
 			XmlTextReader tmpReader = new XmlTextReader(href);
-			tmpReader.ProhibitDtd = false;
+            tmpReader.DtdProcessing = DtdProcessing.Parse;
 			tmpReader.WhitespaceHandling = WhitespaceHandling.None;
 			try
 			{

@@ -445,7 +445,7 @@ namespace Mvp.Xml.Common.Xsl
         static MvpXslTransform()
         {
             DefaultReaderSettings = new XmlReaderSettings();
-            DefaultReaderSettings.ProhibitDtd = false;
+            DefaultReaderSettings.DtdProcessing = DtdProcessing.Parse;
         }
 
         /// <summary>

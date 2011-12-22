@@ -127,7 +127,7 @@ namespace Mvp.Xml.Common.Xsl
 		static XslReader()
 		{
 			ReaderSettings = new XmlReaderSettings();
-			ReaderSettings.ProhibitDtd = true;
+            ReaderSettings.DtdProcessing = DtdProcessing.Prohibit;
 		}
 
 		// Transform Parameters
