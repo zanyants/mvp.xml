@@ -1,10 +1,11 @@
 #region Using
 using System;
-using System.Xml.XPath;
-using System.Xml;
+using System.IO;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;
+using System.Xml;
+using System.Xml.XPath;
 #endregion
 
 namespace Mvp.Xml.Exslt
@@ -559,7 +560,13 @@ namespace Mvp.Xml.Exslt
 		{
 			if (str == string.Empty)
 				return str;
-			return HttpUtility.UrlDecode(str, enc);
+            
+            MemoryStream ms = new MemoryStream();
+            using ( StreamWriter sw = new StreamWriter( ms, enc ) )
+            {
+                WebUtility.HtmlDecode( str, sw );
+            }
+            return enc.GetString( ms.ToArray() );
 		}
 		#endregion
 	}
