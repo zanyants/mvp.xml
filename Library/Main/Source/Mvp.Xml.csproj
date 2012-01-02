@@ -114,6 +114,7 @@
     <Compile Include="Exslt\ExsltContext.cs" />
     <Compile Include="Exslt\ExsltContextFunction.cs" />
     <Compile Include="Exslt\ExsltDatesAndTimes.cs" />
+    <Compile Include="Exslt\ExsltExtensionMethods.cs" />
     <Compile Include="Exslt\ExsltMath.cs" />
     <Compile Include="Exslt\ExsltNamespaces.cs" />
     <Compile Include="Exslt\ExsltRandom.cs" />
