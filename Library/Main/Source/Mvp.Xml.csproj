@@ -18,8 +18,8 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
-    <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\..\Mvp-Xml.Net20.Public.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\..\..\DevTools\Signing\ZanyAnts.snk</AssemblyOriginatorKeyFile>
     <DelaySign>true</DelaySign>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
@@ -108,7 +108,7 @@
     <!-- OutputPath is calculated here 'automatically'. Explicit settings above for different configurations will be ignored. -->
     <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
     <DocumentationFile>$(OutputPath)Mvp.Xml.xml</DocumentationFile>
-  </PropertyGroup>  
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
@@ -221,6 +221,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\DevTools\Signing\ZanyAnts.snk">
+      <Link>ZanyAnts.snk</Link>
+    </None>
     <None Include="..\..\..\Mvp-Xml.Net20.Public.snk">
       <Link>Mvp-Xml.Net20.Public.snk</Link>
     </None>
