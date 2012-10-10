@@ -225,7 +225,8 @@ ildasm "$(TargetFileName)" /out=Mvp.Xml.il /nobar /linenum
 @echo ########### Renaming EXSLT methods... 
 "$(ProjectDir)../../Tools/bin/MethodRenamer.exe" Mvp.Xml.il Mvp.Xml.Fixed.il
 @echo ########### Assembling library back...
-ilasm Mvp.Xml.Fixed.il /RESOURCE=Mvp.Xml.res /DLL /PDB  /OUTPUT="$(TargetFileName)"
+ilasm Mvp.Xml.Fixed.il /RESOURCE=Mvp.Xml.res /DLL /PDB  /OUTPUT="$(TargetFileName)" /KEY=$(ProjectDir)../../../../../DevTools/Signing/ZanyAnts.snk
+
 @echo ########### Cleaning...
 del Mvp.Xml.res
 del Mvp.Xml.il
