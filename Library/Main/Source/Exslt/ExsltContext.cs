@@ -260,10 +260,17 @@ namespace Mvp.Xml.Exslt
 					return GetExtensionFunctionImplementation(gdnStrings, name, argTypes);
 				case ExsltNamespaces.GDNDynamic:
 					return GetExtensionFunctionImplementation(gdnDynamic, name, argTypes);
-				default:
-					throw new XPathException(string.Format("Unrecognized extension function namespace: prefix='{0}', namespace URI='{1}'",
-						prefix, LookupNamespace(_nt.Get(prefix))), null);
-			}
+                    /*
+                     * According to the documented example at http://msdn.microsoft.com/en-us/library/dd567715(v=vs.100).aspx,
+                     * the method should return null if the function is not found. This also allows several contexts to be
+                     * chained together.
+                default:
+                    throw new XPathException(string.Format("Unrecognized extension function namespace: prefix='{0}', namespace URI='{1}'",
+                        prefix, LookupNamespace(_nt.Get(prefix))), null);
+                     * */
+            }
+
+            return null;
 		}
 		#endregion
 
