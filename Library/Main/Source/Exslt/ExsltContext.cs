@@ -333,7 +333,7 @@ namespace Mvp.Xml.Exslt
 				case TypeCode.Object:
 					if (typeof(IXPathNavigable).IsAssignableFrom(type) ||
 						typeof(XPathNavigator).IsAssignableFrom(type))
-						return XPathResultType.Navigator;
+                        return XPathResultType.NodeSet; // NOT XPathResultType.Navigator; - MS issue - see http://stackoverflow.com/questions/9132649/xpathresulttype-definition-error
 					else if (typeof(XPathNodeIterator).IsAssignableFrom(type))
 						return XPathResultType.NodeSet;
 					else
