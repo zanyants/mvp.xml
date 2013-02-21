@@ -50,6 +50,7 @@ namespace Mvp.Xml.Exslt
 		public object Invoke(XsltContext xsltContext, object[] args,
 			XPathNavigator docContext)
 		{
+            // TODO: Late bound calling via reflection - potential performance issue.
 			return _method.Invoke(_ownerObj, args);
 		}
 
