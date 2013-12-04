@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$-ZA</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://mvpxml.codeplex.com/license</licenseUrl>
+    <projectUrl>https://github.com/zanyants/mvp.xml</projectUrl>
+    <iconUrl>https://raw.github.com/zanyants/mvp.xml/contrib/WebSite/mvp-xml-logo.gif</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>First NuGet packaged release.</releaseNotes>
+  </metadata>
+</package>
