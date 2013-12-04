@@ -19,7 +19,7 @@
     <SccProvider>
     </SccProvider>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\..\..\..\DevTools\Signing\ZanyAnts.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\..\..\DevTools\Signing\ZanyAnts.snk</AssemblyOriginatorKeyFile>
     <DelaySign>true</DelaySign>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
@@ -184,7 +184,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\DevTools\Signing\ZanyAnts.snk">
+    <None Include="..\..\..\..\DevTools\Signing\ZanyAnts.snk">
       <Link>ZanyAnts.snk</Link>
     </None>
     <None Include="..\..\..\Mvp-Xml.Net20.Public.snk">
@@ -225,7 +225,7 @@ ildasm "$(TargetFileName)" /out=Mvp.Xml.il /nobar /linenum
 @echo ########### Renaming EXSLT methods... 
 "$(ProjectDir)../../Tools/bin/MethodRenamer.exe" Mvp.Xml.il Mvp.Xml.Fixed.il
 @echo ########### Assembling library back...
-ilasm Mvp.Xml.Fixed.il /RESOURCE=Mvp.Xml.res /DLL /PDB  /OUTPUT="$(TargetFileName)" /KEY=$(ProjectDir)../../../../../DevTools/Signing/ZanyAnts.snk
+ilasm Mvp.Xml.Fixed.il /RESOURCE=Mvp.Xml.res /DLL /PDB  /OUTPUT="$(TargetFileName)" /KEY=$(ProjectDir)../../../../DevTools/Signing/ZanyAnts.snk
 
 @echo ########### Cleaning...
 del Mvp.Xml.res
