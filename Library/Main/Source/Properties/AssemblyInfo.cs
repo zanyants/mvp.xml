@@ -28,13 +28,12 @@ using System.Security;
 
 internal static partial class ThisAssembly
 {
-	public const string Title = "Mvp.Xml";
-	public const string Description = "MVP XML Library";
-	public const string Product = "Mvp.Xml";
+	public const string Title = "Mvp.Xml-ZA";
+	public const string Description = "MVP XML Library (Zany Ants version)";
+	public const string Product = "Mvp.Xml-ZA";
 	public const string Company = "MVP XML Project";
 	public const string Copyright = "";
-	public const string VersionString = "2.3.0.0";
+	public const string VersionString = "2.3.1.0";
 
 	public static readonly Version Version = new Version(VersionString);
-	
 }
