@@ -22,6 +22,7 @@ using System.Security;
 
 [assembly: AssemblyVersion(ThisAssembly.VersionString)]
 [assembly: AssemblyFileVersion(ThisAssembly.VersionString)]
+[assembly: AssemblyInformationalVersion( ThisAssembly.InformationalVersionString )]
 
 // Required by the XPathDocumentWriter.
 [assembly: AllowPartiallyTrustedCallers()]
@@ -34,6 +35,7 @@ internal static partial class ThisAssembly
 	public const string Company = "MVP XML Project";
 	public const string Copyright = "";
 	public const string VersionString = "2.3.1.0";
+    public const string InformationalVersionString = "2.3.1";
 
 	public static readonly Version Version = new Version(VersionString);
 }
