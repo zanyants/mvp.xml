@@ -168,8 +168,8 @@
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Common\changelog.txt" />
-    <Content Include="XPointer\changelog.txt" />
+    <None Include="Common\changelog.txt" />
+    <None Include="XPointer\changelog.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
