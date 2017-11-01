@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Mvp.Xml-ZA</id>
-    <version>2.3.1</version>
+    <version>2.3.3</version>
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
@@ -11,6 +11,6 @@
     <iconUrl>https://raw.github.com/zanyants/mvp.xml/contrib/WebSite/mvp-xml-logo.gif</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>First NuGet packaged release.</releaseNotes>
+    <releaseNotes>Added virtual methods to allow overriding of IXmlLineInfo behaviour in XmlWrappingReader.</releaseNotes>
   </metadata>
 </package>
