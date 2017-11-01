@@ -256,14 +256,22 @@ namespace Mvp.Xml.Common
 		/// </summary>
 		public bool HasLineInfo()
 		{
-			IXmlLineInfo info = baseReader as IXmlLineInfo;
-			if (info != null)
-			{
-				return info.HasLineInfo();
-			}
-
-			return false;
+            return GetHasLineInfo();
 		}
+
+        /// <summary>
+        /// Override this virtual to provide an alternative implementation for <see cref="IXmlLineInfo.HasLineInfo"/>.
+        /// </summary>
+        protected virtual bool GetHasLineInfo()
+        {
+            IXmlLineInfo info = baseReader as IXmlLineInfo;
+            if ( info != null )
+            {
+                return info.HasLineInfo();
+            }
+
+            return false;
+        }
 
 		/// <summary>
 		/// See <see cref="IXmlLineInfo.LineNumber"/>.
@@ -272,15 +280,23 @@ namespace Mvp.Xml.Common
 		{
 			get
 			{
-				IXmlLineInfo info = baseReader as IXmlLineInfo;
-				if (info != null)
-				{
-					return info.LineNumber;
-				}
-
-				return 0;
+                return GetLineNumber();
 			}
 		}
+
+        /// <summary>
+        /// Override this virtual to provide an alternative implementation for <see cref="IXmlLineInfo.LineNumber"/>.
+        /// </summary>
+        protected virtual int GetLineNumber()
+        {
+            IXmlLineInfo info = baseReader as IXmlLineInfo;
+            if ( info != null )
+            {
+                return info.LineNumber;
+            }
+
+            return 0;
+        }
 
 		/// <summary>
 		/// See <see cref="IXmlLineInfo.LinePosition"/>.
@@ -289,15 +305,23 @@ namespace Mvp.Xml.Common
 		{
 			get
 			{
-				IXmlLineInfo info = baseReader as IXmlLineInfo;
-				if (info != null)
-				{
-					return info.LinePosition;
-				}
-
-				return 0;
+                return GetLinePosition();
 			}
 		}
+
+        /// <summary>
+        /// Override this virtual to provide an alternative implementation for <see cref="IXmlLineInfo.LinePosition"/>.
+        /// </summary>
+        protected virtual int GetLinePosition()
+        {
+            IXmlLineInfo info = baseReader as IXmlLineInfo;
+            if ( info != null )
+            {
+                return info.LinePosition;
+            }
+
+            return 0;
+        }
 
 		#endregion
 	}
