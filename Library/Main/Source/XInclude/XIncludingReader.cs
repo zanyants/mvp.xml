@@ -1484,45 +1484,57 @@ namespace Mvp.Xml.XInclude
 		/// </summary>        
 		private string CreateAcquiredInfoset(Uri includeLocation)
 		{
-			if (_cache == null)
-				_cache = new Dictionary<string, WeakReference>();
-			WeakReference wr;
-			if (_cache.TryGetValue(includeLocation.AbsoluteUri, out wr) && wr.IsAlive)
-			{
-				return (string)wr.Target;
-			}
-			else
-			{
-				//Not cached or GCollected
-				WebResponse wRes;
-				Stream stream = GetResource(includeLocation.AbsoluteUri,
-					_reader.GetAttribute(_keywords.Accept),
-					_reader.GetAttribute(_keywords.AcceptLanguage), out wRes);
-				XIncludingReader xir = new XIncludingReader(wRes.ResponseUri.AbsoluteUri, stream, _nameTable);
-				xir.WhitespaceHandling = _whiteSpaceHandling;
-				StringWriter sw = new StringWriter();
-				XmlTextWriter w = new XmlTextWriter(sw);
-				try
-				{
-					while (xir.Read())
-						w.WriteNode(xir, false);
-				}
-				finally
-				{
-					if (xir != null)
-						xir.Close();
-					if (w != null)
-						w.Close();
-				}
-				string content = sw.ToString();
-				lock (_cache)
-				{
-					if (!_cache.ContainsKey(includeLocation.AbsoluteUri))
-						_cache.Add(includeLocation.AbsoluteUri, new WeakReference(content));
-				}
-				return content;
-			}
-		}
+            if (_cache == null)
+                _cache = new Dictionary<string, WeakReference>();
+            WeakReference wr;
+            if (_cache.TryGetValue(includeLocation.AbsoluteUri, out wr) && wr.IsAlive)
+            {
+                return (string)wr.Target;
+            }
+            else
+            {
+                //Not cached or GCollected
+                WebResponse wRes;
+                string content = null;
+                using (Stream stream = GetResource(includeLocation.AbsoluteUri,
+                _reader.GetAttribute(_keywords.Accept),
+                _reader.GetAttribute(_keywords.AcceptLanguage), out wRes))
+                {
+                    using (XIncludingReader xir = new XIncludingReader(wRes.ResponseUri.AbsoluteUri, stream, _nameTable))
+                    {
+                        xir.WhitespaceHandling = _whiteSpaceHandling;
+                        using (StringWriter sw = new StringWriter())
+                        {
+                            using (XmlTextWriter w = new XmlTextWriter(sw))
+                            {
+                                try
+                                {
+                                    while (xir.Read())
+                                        w.WriteNode(xir, false);
+                                }
+                                finally
+                                {
+                                    if (xir != null)
+                                        xir.Close();
+                                    if (w != null)
+                                        w.Close();
+                                }
+                                content = sw.ToString();
+                            }
+                        }
+                    }
+                }
+                if (content != null)
+                {
+                    lock (_cache)
+                    {
+                        if (!_cache.ContainsKey(includeLocation.AbsoluteUri))
+                            _cache.Add(includeLocation.AbsoluteUri, new WeakReference(content));
+                    }
+                }
+                return content;
+            }
+        }
 
 		/// <summary>
 		/// Creates acquired infoset.
